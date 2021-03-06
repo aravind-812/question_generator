@@ -165,12 +165,15 @@ class QuestionGenerator:
             entities = docs[i].ents
             if entities:
                 for entity in entities:
+                    print(entity,' <------ enitity in entities')
                     qg_input = "{} {} {} {}".format(
                         self.ANSWER_TOKEN, entity, self.CONTEXT_TOKEN, sentences[i]
                     )
                     answers = self._get_MC_answers(entity, docs)
+                    print(answer,' <------  answer')
                     inputs_from_text.append(qg_input)
                     answers_from_text.append(answers)
+        print(answers_from_text,' <------ answers_from_text')
 
         return inputs_from_text, answers_from_text
 
